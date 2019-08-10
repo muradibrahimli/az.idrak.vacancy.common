@@ -20,12 +20,18 @@ public class ApplyEntity {
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private PersonEntity personEntity;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     @JoinColumn(name = "vacancy_id", referencedColumnName = "id")
     private VacancyEntity vacancy;
 
     @Column(name = "about")
     private String about;
+
+    @Column(name = "file_name")
+    private String filename;
+
+    @Column(name = "file")
+    private Byte[] file;
 
     @PrePersist
     protected void onCreate() {
@@ -38,11 +44,29 @@ public class ApplyEntity {
 
     }
 
-    public ApplyEntity(Long id, PersonEntity personEntity, VacancyEntity vacancy, String about){
+    public ApplyEntity(Long id, PersonEntity personEntity, VacancyEntity vacancy, String about, String filename, Byte[] file){
         this.id=id;
         this.vacancy=vacancy;
         this.personEntity = personEntity;
         this.about=about;
+        this.filename=filename;
+        this.file=file;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public Byte[] getFile() {
+        return file;
+    }
+
+    public void setFile(Byte[] file) {
+        this.file = file;
     }
 
     public LocalDate getApplyDate() {

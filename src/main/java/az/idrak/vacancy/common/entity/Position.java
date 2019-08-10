@@ -2,6 +2,7 @@ package az.idrak.vacancy.common.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "position")
@@ -11,11 +12,13 @@ public class Position {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "name is mandatory")
+    @NotNull
+    @Size(min = 2,max = 50,message = "ad qeyd edilməyib")
     @Column(name = "name")
     private  String name;
 
-    @NotNull(message = "description is mandatory")
+    @NotNull
+    @Size(min = 2,max = 50,message = "açıqlama qeyd edilməyib")
     @Column(name = "description")
     private String description;
 

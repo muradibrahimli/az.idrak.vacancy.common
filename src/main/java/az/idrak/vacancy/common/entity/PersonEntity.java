@@ -17,7 +17,6 @@ public class PersonEntity {
     @Column(name = "surname")
     private String surname;
 
-
     @Column(name = "patronymic")
     private String patronymic;
 
