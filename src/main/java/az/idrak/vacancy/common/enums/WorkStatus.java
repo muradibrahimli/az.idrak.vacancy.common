@@ -10,6 +10,7 @@ public enum WorkStatus {
     private int code;
     private String description;
 
+    
     WorkStatus(int code, String description) {
         this.code = code;
         this.description = description;
