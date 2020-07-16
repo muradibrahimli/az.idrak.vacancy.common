@@ -2,7 +2,7 @@ package az.idrak.vacancy.common.enums;
 
 public enum WorkStatus {
 
-    
+
 
     FullTime(1, "Full-time"),
     PartTime(0, "Part-time");
@@ -15,6 +15,9 @@ public enum WorkStatus {
         this.description = description;
     }
 
+
+
+    
     public int getCode() {
         return code;
     }
